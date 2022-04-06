@@ -1,0 +1,28 @@
+Retrying.
+
+--2022-02-23 02:38:12--  (try: 4)  https://www.boost.org/favicon.ico
+Connecting to www.boost.org (www.boost.org)|146.20.110.251|:443... failed: Connection timed out.
+Retrying.
+
+--2022-02-23 02:40:23--  (try: 5)  https://www.boost.org/favicon.ico
+Connecting to www.boost.org (www.boost.org)|146.20.110.251|:443... failed: Connection timed out.
+Retrying.
+
+--2022-02-23 02:42:36--  (try: 6)  https://www.boost.org/favicon.ico
+Connecting to www.boost.org (www.boost.org)|146.20.110.251|:443... failed: Connection timed out.
+Retrying.
+
+--2022-02-23 02:44:49--  (try: 7)  https://www.boost.org/favicon.ico
+Connecting to www.boost.org (www.boost.org)|146.20.110.251|:443... failed: Connection timed out.
+Retrying.
+
+--2022-02-23 02:47:03--  (try: 8)  https://www.boost.org/favicon.ico
+Connecting to www.boost.org (www.boost.org)|146.20.110.251|:443... failed: Connection timed out.
+Retrying.
+
+--2022-02-23 02:49:19--  (try: 9)  https://www.boost.org/favicon.ico
+Connecting to www.boost.org (www.boost.org)|146.20.110.251|:443... failed: Connection timed out.
+Retrying.
+
+--2022-02-23 02:51:35--  (try:10)  https://www.boost.org/favicon.ico
+Connecting to www.boost.org (www.boost.org)|146.20.110.251|:443... 

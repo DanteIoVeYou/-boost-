@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boost_Document_Searecher</title>
+    <link rel="shortcut icon" href="https://www.boost.org/favicon.ico" type="image/x-ico" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            background-color: rgb(250, 251, 253);
+        }
+
+        .container {
+            width: 55%;
+            height: 100%;
+            margin: 0 auto;
+            background-color: white;
+            overflow: auto;
+        }
+        .heading-qoute {
+            text-align: right;
+            padding: 25px 1.5em 10px 0em;
+        }
+        .header {
+            width: 100%;
+            height: 50px;
+        }
+        .header input {
+            width: 600px;
+            height: 46px;
+            font-size: 26px;
+            padding-left: 10px;
+            float: left;
+        }
+
+        .header button {
+            width: 100px;
+            height: 50px;
+            font-size: 23px;
+            color: black;
+            background-color: #fc0;
+            float: left;
+        }
+        .item {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .item a {
+            display: block;
+            width: 100%;
+            height: 40px;
+            font-size: 22px;
+            line-height: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #000080;
+        }
+        .item p {
+            font-size: 18px;
+        }
+        .item i {
+            color: #006000;
+            font-size: 18px;
+            font-style: normal;
+        }
+
+        .heading-inner {
+            background: url(./header-fg.png) no-repeat top left;
+            border: none;
+            border-bottom: #000000 solid 1px;
+            height: 100px;
+            overflow: hidden;
+            color: white;
+}       
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <img src="./boost.png" alt="boost">
+        </div>
+        <div class="header">
+            <!-- search box -->
+            <input type="text">
+            
+            <!-- search button -->
+
+            <button onclick="search()">Search</button>
+        </div>
+        <div class="result">
+
+        </div>
+
+    </div>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        function search() {
+            // 1.get query from search box
+            let query = $(".header input").val();
+            console.log("query:" + query);
+            // 2.sent request to server
+            $.ajax({
+                type: "get",
+                url: "searcher?query=" + query,
+                success: function(data, status) {
+                    buildResult(data);
+                }
+            });
+        }
+
+        function buildResult(data) {
+            let result = $(".result");
+            result.empty();
+            for(let item of data) {
+                let title = $("<a>", {
+                    text: item.title,
+                    href: item.url,
+                    target: "_blank",
+                });
+                let description = $("<p>", {
+                    text: item.description,
+                });
+                let showUrl = $("<i>", {
+                    text: item.url,
+                });
+
+                let itemHtml = $("<div>", {
+                    class: "item",
+                });
+                title.appendTo(itemHtml);
+                description.appendTo(itemHtml);
+                showUrl.appendTo(itemHtml);
+                itemHtml.appendTo(result);
+            }
+
+        }
+    </script>
+</body>
+</html>
